@@ -13,6 +13,7 @@ data_geo = json.load(open('Kecamatan_Surabaya.geojson'))
 
 def center():
     address = 'Surabaya, ID'
+    #address = 'Madura, ID'
     geolocator = Nominatim(user_agent="id_explorer")
     location = geolocator.geocode(address)
     latitude = location.latitude
@@ -49,12 +50,12 @@ def show_maps(data, threshold_scale):
 
 centers = center()
 
-select_maps = st.sidebar.selectbox(
-    "What data do you want to see?",
+select_maps = st.selectbox(
+    "Select the type of Map",
     ("OpenStreetMap", "Stamen Terrain","Stamen Toner")
 )
-select_data = st.sidebar.radio(
-    "What data do you want to see?",
+select_data = st.radio(
+    "Select what you want to analyze",
     ("Total_Pop", "Area_Region","Male_Pop",'Female_Pop')
 )
 
